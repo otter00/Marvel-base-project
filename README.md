@@ -1,6 +1,6 @@
 # Marvel-base-project
 
-##GitHub pages: https://otter00.github.io/Marvel-base-project/
+## GitHub pages: https://otter00.github.io/Marvel-base-project/
 
 Superheroes cards with starts raiting (JS)
 
