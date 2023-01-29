@@ -208,6 +208,9 @@ if (localStorage.length != 0) {
     })
 }
 
+
+        // КОД ПОДЛЕЖИТ ДОРАБОТКЕ
+
 //check whether localstorage has objects
 document.addEventListener('DOMContentLoaded', ()=> {
 
@@ -220,14 +223,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const icons = document.querySelectorAll('.icon');
     console.log(icons);
     
-    for(let f of form) {
-      console.log(f)
-      console.log(f.id);
-    }
+    // for(let f of form) {
+    //   console.log(f)
+    //   console.log(f.id);
+    // }
     
-    for(let i of inputs) {
-      console.log(i)
-    }
+    // for(let i of inputs) {
+    //   console.log(i)
+    // }
+
+    //      ПОДЛЕЖИТ ДОРАБОТКЕ
     
     // if (root.contains('container__input')) {
     //   const form = root.parentNode.parentNode;
