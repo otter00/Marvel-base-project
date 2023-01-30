@@ -155,11 +155,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
     //set cards into document
     document.getElementById('gallery__container').innerHTML = cardsContent;
 
-    const icons = document.querySelectorAll('.icon');
-    console.log(icons);
+    
 
-    const inputs = document.querySelectorAll('.container__input')
-    console.log(inputs);
+    // const icons = document.querySelectorAll('.icon');
+    // console.log(icons);
+
+    // const inputs = document.querySelectorAll('.container__input')
+    // console.log(inputs);
 });
 
 
@@ -174,6 +176,14 @@ root.addEventListener('click', (event) => {
     const key = form.id;
     const value = event.target.value;
 
+    raitingColor(icons, inputs);
+
+    // console.log(event.target.value);
+    localStorage.setItem(key, value);
+    }
+});
+
+function raitingColor(icons, inputs) {
     icons.forEach((elem) => {
         elem.style = 'fill: black';
     })
@@ -184,73 +194,58 @@ root.addEventListener('click', (event) => {
             break;
         }
     }
-
-    // console.log(event.target.value);
-    localStorage.setItem(key, value);
-    }
-});
-
-//get all the keys of object (localstorage is object)
-const allKeys = Object.keys(localStorage);
-for (const key of allKeys) {
-    console.log(key);
-    console.log(localStorage[key]);
 }
 
-//делаем проверку, есть ли заметки в локальном хранилище. Внимание! Этот материал вы еще не проходили, это уже работа с объектами. Усложненная часть задачи
+//get all the keys of object (localstorage is object)
+//const allKeys = Object.keys(localStorage);
+// for (const key of allKeys) {
+//     console.log(key);
+//     console.log(localStorage[key]);
+// }
+
+
+function storageCheck() {
+    //делаем проверку, есть ли заметки в локальном хранилище. Внимание! Этот материал вы еще не проходили, это уже работа с объектами. Усложненная часть задачи
 if (localStorage.length != 0) {
     const arrKeys = Object.keys(localStorage);
+    console.log('in storage we have ' + arrKeys + ' active keys');
+
+    //const formKeys = [];
     //переписала функцию без получения методов. Расскажу на ближайших уроках почему не получилось в первый раз и почему сработает этот способ. Костыль убрала! 
     arrKeys.forEach((key) => {
         //console.log(arrKeys);
         console.log('here we have ' + key);
+        //formKeys.push(key);
         console.log('with value ' + localStorage[key]);
     })
+    
+    return arrKeys;
+    //console.log('available checked keys: ' + formKeys)
 }
-
+}
 
         // КОД ПОДЛЕЖИТ ДОРАБОТКЕ
 
 //check whether localstorage has objects
 document.addEventListener('DOMContentLoaded', ()=> {
 
+    const formKeys = storageCheck();
+    console.log(formKeys);
+
     const form = document.querySelectorAll('form');
     console.log(form);
+
+    for(let fk = 0; fk < formKeys.length; fk++) {
+        for(let f = 0; f < form.length; f++) {
+            if (fk == f) {
+                console.log('equal')
+            }
+        }
+    }
     
     const inputs = document.querySelectorAll('.container__input');
     console.log(inputs);
     
     const icons = document.querySelectorAll('.icon');
     console.log(icons);
-    
-    // for(let f of form) {
-    //   console.log(f)
-    //   console.log(f.id);
-    // }
-    
-    // for(let i of inputs) {
-    //   console.log(i)
-    // }
-
-    //      ПОДЛЕЖИТ ДОРАБОТКЕ
-    
-    // if (root.contains('container__input')) {
-    //   const form = root.parentNode.parentNode;
-    //   const inputs = form.querySelectorAll('.container__input');
-    //   const icons = form.querySelectorAll('.icon');
-    //   const key = form.id;
-    //   const value = event.target.value;
-    
-    //   console.log(inputs);
-    
-      // icons.forEach((elem) => {
-      //   elem.style = 'fill: black';
-      // })
-    
-      // for (let i = 0; i < inputs.length; i++) {
-      //   icons[i].style = 'fill: gold';
-      //   if (inputs[i].checked) {
-      //     break
-      //   }
-      // }
-    });
+});
