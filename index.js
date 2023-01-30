@@ -205,22 +205,28 @@ function raitingColor(icons, inputs) {
 
 
 function storageCheck() {
-    //делаем проверку, есть ли заметки в локальном хранилище. Внимание! Этот материал вы еще не проходили, это уже работа с объектами. Усложненная часть задачи
 if (localStorage.length != 0) {
     const arrKeys = Object.keys(localStorage);
     console.log('in storage we have ' + arrKeys + ' active keys');
 
-    //const formKeys = [];
-    //переписала функцию без получения методов. Расскажу на ближайших уроках почему не получилось в первый раз и почему сработает этот способ. Костыль убрала! 
     arrKeys.forEach((key) => {
-        //console.log(arrKeys);
         console.log('here we have ' + key);
-        //formKeys.push(key);
         console.log('with value ' + localStorage[key]);
     })
     
-    return arrKeys;
+    //return arrKeys;
     //console.log('available checked keys: ' + formKeys)
+
+    const form = document.querySelectorAll('form');
+    console.log(form);
+
+    for(let fk = 0; fk < arrKeys.length; fk++) {
+        for(let f = 0; f < form.length; f++) {
+            if (fk == f) {
+                console.log('equal')
+            }
+        }
+    }  
 }
 }
 
@@ -229,23 +235,25 @@ if (localStorage.length != 0) {
 //check whether localstorage has objects
 document.addEventListener('DOMContentLoaded', ()=> {
 
-    const formKeys = storageCheck();
-    console.log(formKeys);
+    storageCheck();
 
-    const form = document.querySelectorAll('form');
-    console.log(form);
+    // const formKeys = storageCheck();
+    // console.log(formKeys);
 
-    for(let fk = 0; fk < formKeys.length; fk++) {
-        for(let f = 0; f < form.length; f++) {
-            if (fk == f) {
-                console.log('equal')
-            }
-        }
-    }
+    // const form = document.querySelectorAll('form');
+    // console.log(form);
+
+    // for(let fk = 0; fk < formKeys.length; fk++) {
+    //     for(let f = 0; f < form.length; f++) {
+    //         if (fk == f) {
+    //             console.log('equal')
+    //         }
+    //     }
+    // }
     
-    const inputs = document.querySelectorAll('.container__input');
-    console.log(inputs);
+    // const inputs = document.querySelectorAll('.container__input');
+    // console.log(inputs);
     
-    const icons = document.querySelectorAll('.icon');
-    console.log(icons);
+    // const icons = document.querySelectorAll('.icon');
+    // console.log(icons);
 });
