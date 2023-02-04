@@ -196,6 +196,23 @@ function raitingColor(icons, inputs) {
     }
 }
 
+//fill the stars from localStorage (if it has them for each card)
+window.addEventListener('load', (event) => {
+    const arrLabels = document.querySelectorAll('.labels');
+
+    arrLabels.forEach((elem) => {
+        if (localStorage.getItem(elem.id)) {
+            const valueLocalStorage = localStorage.getItem(elem.id); //key: id(value)
+            console.log(valueLocalStorage);
+
+            const icons = elem.querySelectorAll('.icon');
+            for (let i = 0; i < valueLocalStorage; i++) {
+                icons[i].style = 'fill: gold';
+            }
+        }
+    })
+})
+
 //get all the keys of object (localstorage is object)
 //const allKeys = Object.keys(localStorage);
 // for (const key of allKeys) {
@@ -213,20 +230,25 @@ if (localStorage.length != 0) {
         console.log('here we have ' + key);
         console.log('with value ' + localStorage[key]);
     })
+
+    // const inputs = document.querySelectorAll('.container__input');
+    // console.log(inputs);
     
-    //return arrKeys;
-    //console.log('available checked keys: ' + formKeys)
+    // const icons = document.querySelectorAll('.icon');
+    // console.log(icons);
 
-    const form = document.querySelectorAll('form');
-    console.log(form);
+    // const form = document.querySelectorAll('form');
+    // console.log(form);
 
-    for(let fk = 0; fk < arrKeys.length; fk++) {
-        for(let f = 0; f < form.length; f++) {
-            if (fk == f) {
-                console.log('equal')
-            }
-        }
-    }  
+    // for(let fk = 0; fk < arrKeys.length; fk++) {
+    //     for(let f = 0; f < form.length; f++) {
+    //         if (fk == f) {
+    //             console.log('equal');
+    //             //console.log(form[f].nextElementSibling.id);
+    //             //raitingColor(icons, form[f].nextElementSibling.id);
+    //         }
+    //     }
+    // }  
 }
 }
 
@@ -234,7 +256,6 @@ if (localStorage.length != 0) {
 
 //check whether localstorage has objects
 document.addEventListener('DOMContentLoaded', ()=> {
-
     storageCheck();
 
     // const formKeys = storageCheck();
@@ -250,10 +271,4 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //         }
     //     }
     // }
-    
-    // const inputs = document.querySelectorAll('.container__input');
-    // console.log(inputs);
-    
-    // const icons = document.querySelectorAll('.icon');
-    // console.log(icons);
 });
