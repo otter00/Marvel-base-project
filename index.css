@@ -22,12 +22,22 @@ body {
     text-align: center;
     margin: 0.7em;
 }
+.gallery__card:hover {
+    background-color: rgb(246, 204, 142);
+    transition: 100ms;
+}
 
 h2 {
     font-size: 1.8em;
     margin-bottom: 0.2em;
     margin-top: 0;
 }
+h2:hover {
+    font-size: 2em;
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
 h3 {
     margin-top: 0.1em;
     margin-bottom: 0.3em;

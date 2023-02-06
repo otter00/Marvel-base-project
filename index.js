@@ -155,8 +155,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
     //set cards into document
     document.getElementById('gallery__container').innerHTML = cardsContent;
 
-    
-
     // const icons = document.querySelectorAll('.icon');
     // console.log(icons);
 
