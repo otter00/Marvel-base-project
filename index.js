@@ -250,23 +250,7 @@ if (localStorage.length != 0) {
 }
 }
 
-        // КОД ПОДЛЕЖИТ ДОРАБОТКЕ
-
 //check whether localstorage has objects
 document.addEventListener('DOMContentLoaded', ()=> {
     storageCheck();
-
-    // const formKeys = storageCheck();
-    // console.log(formKeys);
-
-    // const form = document.querySelectorAll('form');
-    // console.log(form);
-
-    // for(let fk = 0; fk < formKeys.length; fk++) {
-    //     for(let f = 0; f < form.length; f++) {
-    //         if (fk == f) {
-    //             console.log('equal')
-    //         }
-    //     }
-    // }
 });
